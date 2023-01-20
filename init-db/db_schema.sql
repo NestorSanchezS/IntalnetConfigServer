@@ -1,13 +1,15 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+CREATE DATABASE  IF NOT EXISTS `intalnet` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `intalnet`;
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: 2.tcp.ngrok.io    Database: intalnet
+-- Host: localhost    Database: intalnet
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -86,7 +88,7 @@ CREATE TABLE `cities_plans` (
 
 LOCK TABLES `cities_plans` WRITE;
 /*!40000 ALTER TABLE `cities_plans` DISABLE KEYS */;
-INSERT INTO `cities_plans` VALUES (1,1,400),(1,2,120),(1,3,90),(1,4,60),(2,5,120),(2,6,80),(2,7,60),(3,5,120),(3,6,80),(3,7,60),(5,8,60),(5,9,50);
+INSERT INTO `cities_plans` VALUES (1,1,400),(1,2,120),(2,5,120),(2,6,80),(2,7,60),(3,5,120),(3,6,80),(3,7,60),(5,8,60),(5,9,50),(1,10,90),(1,4,60);
 /*!40000 ALTER TABLE `cities_plans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,7 +153,7 @@ CREATE TABLE `plans` (
   `name` varchar(1000) NOT NULL,
   `ui_params` json DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +162,7 @@ CREATE TABLE `plans` (
 
 LOCK TABLES `plans` WRITE;
 /*!40000 ALTER TABLE `plans` DISABLE KEYS */;
-INSERT INTO `plans` VALUES (1,'Insuperable','{\"img\": \"plan03\", \"bgcolor\": \"bg-maincolor\"}'),(2,'Premium','{\"img\": \"plan03\", \"bgcolor\": \"bg-maincolor2\"}'),(3,'Premium','{\"img\": \"plan02\", \"bgcolor\": \"bg-maincolor3\"}'),(4,'Plus','{\"img\": \"plan01\", \"bgcolor\": \"bg-maincolor4\"}'),(5,'Premium','{\"img\": \"plan03\", \"bgcolor\": \"bg-maincolor\"}'),(6,'Blus','{\"img\": \"plan02\", \"bgcolor\": \"bg-maincolor2\"}'),(7,'Básico','{\"img\": \"plan01\", \"bgcolor\": \"bg-maincolor3\"}'),(8,'Plus','{\"img\": \"plan02\", \"bgcolor\": \"bg-maincolor2\"}'),(9,'Básico','{\"img\": \"plan01\", \"bgcolor\": \"bg-maincolor3\"}');
+INSERT INTO `plans` VALUES (1,'Insuperable','{\"img\": \"plan03\", \"bgcolor\": \"bg-maincolor\"}'),(2,'Premium','{\"img\": \"plan03\", \"bgcolor\": \"bg-maincolor2\"}'),(3,'Premium','{\"img\": \"plan02\", \"bgcolor\": \"bg-maincolor3\"}'),(4,'Básico','{\"img\": \"plan01\", \"bgcolor\": \"bg-maincolor4\"}'),(5,'Premium','{\"img\": \"plan03\", \"bgcolor\": \"bg-maincolor\"}'),(6,'Plus','{\"img\": \"plan02\", \"bgcolor\": \"bg-maincolor2\"}'),(7,'Básico','{\"img\": \"plan01\", \"bgcolor\": \"bg-maincolor3\"}'),(8,'Plus','{\"img\": \"plan02\", \"bgcolor\": \"bg-maincolor2\"}'),(9,'Básico','{\"img\": \"plan01\", \"bgcolor\": \"bg-maincolor3\"}'),(10,'Plus','{\"img\": \"plan02\", \"bgcolor\": \"bg-maincolor3\"}');
 /*!40000 ALTER TABLE `plans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +268,7 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
-INSERT INTO `services` VALUES (1,'500','bandwidth'),(2,'120','bandwidth'),(3,'100','bandwidth'),(4,'90','bandwidth'),(5,'80','bandwidth'),(6,'70','bandwidth'),(7,'60','bandwidth'),(8,'50','bandwidth'),(9,'40','bandwidth'),(10,'30','bandwidth'),(11,'20','bandwidth'),(12,'10','bandwidth'),(13,'5','bandwidth'),(14,'200','bandwidth'),(15,'Soporte Especializado','sorporte'),(16,'Canales Full HD y SD','canales'),(17,'75 Canales TV','tv'),(18,'45 Canales TV','tv');
+INSERT INTO `services` VALUES (1,'500','bandwidth'),(2,'120','bandwidth'),(3,'100','bandwidth'),(4,'90','bandwidth'),(5,'80','bandwidth'),(6,'70','bandwidth'),(7,'60','bandwidth'),(8,'50','bandwidth'),(9,'40','bandwidth'),(10,'30','bandwidth'),(11,'20','bandwidth'),(12,'10','bandwidth'),(13,'5','bandwidth'),(14,'200','bandwidth'),(15,'Soporte Especializado','sorporte'),(16,'Canales Full HD y SD','canales'),(17,'75 Canales TV','tv'),(18,'62 Canales Tv','tv');
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +295,7 @@ CREATE TABLE `services_plans` (
 
 LOCK TABLES `services_plans` WRITE;
 /*!40000 ALTER TABLE `services_plans` DISABLE KEYS */;
-INSERT INTO `services_plans` VALUES (1,1),(1,15),(1,16),(1,18),(2,2),(2,15),(2,16),(2,18),(3,5),(3,15),(3,16),(3,18),(4,9),(4,15),(4,16),(4,18),(5,5),(5,15),(5,16),(5,17),(6,8),(6,15),(6,16),(6,17),(7,10),(7,15),(7,16),(7,17),(8,12),(8,15),(9,13),(9,15);
+INSERT INTO `services_plans` VALUES (1,1),(1,15),(1,16),(1,18),(2,2),(2,15),(2,16),(2,18),(3,5),(3,15),(3,16),(3,18),(5,5),(5,15),(5,16),(5,17),(7,10),(7,15),(7,16),(7,17),(8,12),(8,15),(9,13),(9,15),(6,8),(6,15),(6,16),(6,17),(4,9),(4,15),(4,16),(4,18),(10,5),(10,15),(10,16),(10,18);
 /*!40000 ALTER TABLE `services_plans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,4 +336,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-26 21:54:07
+-- Dump completed on 2023-01-20  0:23:32
