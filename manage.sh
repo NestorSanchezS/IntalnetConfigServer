@@ -21,7 +21,7 @@ elif [ $action = "reload-api" ]; then
 
     docker compose pull api
 
-    docker compose --force-recreate -d api
+    docker compose up --force-recreate -d api
 
     docker image prune -f
 
@@ -29,7 +29,7 @@ elif [ $action = "reload-front" ]; then
 
     docker compose pull frontend
 
-    docker compose --force-recreate -d frontend
+    docker compose up --force-recreate -d frontend
 
     docker image prune -f
 
