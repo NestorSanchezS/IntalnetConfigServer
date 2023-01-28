@@ -25,7 +25,7 @@ elif [ $action = "reload-api" ]; then
 
     docker image prune -f
 
-elif [ $action = "relaod-front" ]; then
+elif [ $action = "reload-front" ]; then
 
     docker compose pull frontend
 
