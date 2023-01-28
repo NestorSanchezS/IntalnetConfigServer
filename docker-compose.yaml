@@ -5,12 +5,18 @@ services:
     image: traefik:v2.7
     ports:
       - 80:80
+      - 443:443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.yaml:/traefik.yaml
+      - ./acme.json:/traefik.json
+      - ./traefik.log:/traefik.log
 
   database:
     image: mysql:8
+    restart: always
+    labels:
+      - traefik.enable=false
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASS}
       - MYSQL_USER=${DB_USER}
@@ -24,10 +30,10 @@ services:
 
   api:
     image: nestorsanchezz/intalnet_api:latest
+    restart: always
     labels:
       - traefik.http.routers.intalnet-api.rule=Host(`api.${DOMAIN}`)
-    ports:
-      - 3300:3300
+      - traefik.http.routers.intalnet-api.tls.certresolver=myresolver
     depends_on:
       - database
       - reverse-proxy
@@ -40,12 +46,12 @@ services:
 
   frontend:
     image: nestorsanchezz/intalnet_frontend:latest
+    restart: always
     labels:
       - traefik.http.routers.intalnet-frontend.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.intalnet-frontend.tls.certresolver=myresolver
     depends_on:
       - api
-    ports:
-      - 3005:3005
 
 volumes:
   dbdata:
