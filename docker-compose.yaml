@@ -50,7 +50,7 @@ services:
     labels:
       - traefik.http.routers.intalnet-frontend.rule=Host(`${DOMAIN}`)
       - traefik.http.routers.intalnet-frontend.tls.certresolver=myresolver
-      - traefik.http.routers.intalnet-frontend.rule=(Host(`intalnet.sancheznestor.com`) || Host(`www.intalnet.sancheznestor.com`))
+      - traefik.http.routers.intalnet-frontend.rule=(Host(`intalnettelecomunicaciones.com`) || Host(`www.intalnettelecomunicaciones.com`))
     depends_on:
       - api
 
