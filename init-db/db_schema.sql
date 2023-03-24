@@ -88,7 +88,7 @@ CREATE TABLE `cities_plans` (
 
 LOCK TABLES `cities_plans` WRITE;
 /*!40000 ALTER TABLE `cities_plans` DISABLE KEYS */;
-INSERT INTO `cities_plans` VALUES (1,1,400),(1,2,120),(2,5,130),(2,6,90),(2,7,70),(3,5,130),(3,6,90),(3,7,70),(5,8,60),(5,9,50),(1,10,90),(1,4,60);
+INSERT INTO `cities_plans` VALUES (1,1,405),(1,2,125),(2,5,130),(2,6,90),(2,7,70),(3,5,130),(3,6,90),(3,7,70),(5,8,60),(5,9,50),(1,10,95),(1,4,65);
 /*!40000 ALTER TABLE `cities_plans` ENABLE KEYS */;
 UNLOCK TABLES;
 
